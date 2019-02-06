@@ -10,7 +10,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class NavbarComponent implements OnInit {
 
   constructor(private authService: AuthService, private afsAuth: AngularFireAuth) { }
-  public app_name: string = 'BookStore';
+  public app_name: string = 'Adopt A Pet';
   public isLogged: boolean = false;
   ngOnInit() {
     this.getCurrentUser();
