@@ -90,9 +90,31 @@ export class DataApiService {
     }));
   }
 
-  addMascot() {}
+  getOneMascot(idMascot: string) {
+    this.mascotDoc = this.afs.doc<MascotInterface>(`mascots/${idMascot}`);
+    return this.mascot = this.mascotDoc.snapshotChanges().pipe(map(action => {
+      if (action.payload.exists === false) {
+        return null;
+      } else {
+        const data = action.payload.data() as MascotInterface;
+        data.id = action.payload.id;
+        return data;
+      }
+    }));
+  }
 
-  updateMascot() {}
+  addMascot(mascot : MascotInterface) {
+    this.mascotsCollection.add(mascot);
+  }
 
-  deleteMascot() {}
+  updateMascot(mascot : MascotInterface) {
+    let idMascot = mascot.id;
+    this.mascotDoc = this.afs.doc<MascotInterface>(`mascots/${idMascot}`);
+    this.mascotDoc.update(mascot);
+  }
+
+  deleteMascot(idMascot: string) {
+    this.mascotDoc = this.afs.doc<MascotInterface>(`mascots/${idMascot}`);
+    this.mascotDoc.delete();
+  }
 }

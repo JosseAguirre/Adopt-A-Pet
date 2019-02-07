@@ -9,12 +9,14 @@ import { RegisterComponent } from 'src/app/components/users/register/register.co
 import { ProfileComponent } from 'src/app/components/users/profile/profile.component';
 import { Page404Component } from './components/page404/page404.component';
 import { AuthGuard } from './guards/auth.guard';
+import { DetailsMascotComponent } from './components/details-mascot/details-mascot.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'offers', component: OffersComponent, canActivate: [AuthGuard] },
   { path: 'book/:id', component: DetailsBookComponent },
+  {path: 'mascot/:id', component: DetailsMascotComponent},
   { path: 'admin/list-books', component: ListBooksComponent, canActivate: [AuthGuard] },
   { path: 'user/login', component: LoginComponent },
   { path: 'user/register', component: RegisterComponent },
