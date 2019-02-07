@@ -28,3 +28,60 @@
     </div>
   </div>
 </section>
+
+<section id="mascots" class="mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let mascot of mascots">
+        <div class="card_book">
+          <div class="card">
+            <div class="card-body text-center">
+              <p>
+                <img class="img-fluid" src="{{mascot.imagen}}" alt="{{mascot.nombre}}">
+              </p>
+              <h4 routerLink="/mascot/{{mascot.id}}" class="card-title">{{mascot.nombre}}</h4>
+              <p class="card-text">
+                {{mascot.animal}}
+              </p>
+              <p class="card-text">
+                {{mascot.color}}
+              </p>
+              <p class="card-text">
+                {{mascot.cuidados}}
+              </p>
+              <p class="card-text">
+                {{mascot.decripcion}}
+              </p>
+              <p class="card-text">
+                {{mascot.edad}}
+              </p>
+              <p class="card-text">
+                {{mascot.genero}}
+              </p>
+              <p class="card-text">
+                {{mascot.personalidad}}
+              </p>
+              <p class="card-text">
+                {{mascot.raza}}
+              </p>
+              <p class="card-text">
+                {{mascot.tamano}}
+              </p>
+              <p class="card-text">
+                {{mascot.ubicacion}}
+              </p>
+              <div class="container-precio-idioma">
+                <p class="badge badge-info">
+                  {{mascot.fecha}}€
+                </p>
+                <p class="badge badge-info">
+                  {{mascot.accion}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

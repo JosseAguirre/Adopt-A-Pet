@@ -3,12 +3,21 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { BookInterface } from '../models/book';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
+import { MascotInterface } from './../models/mascot';
 @Injectable({
   providedIn: 'root'
 })
 export class DataApiService {
 
   constructor(private afs: AngularFirestore) { }
+  private mascotsCollection: AngularFirestoreCollection<MascotInterface>;
+  private mascots: Observable<MascotInterface[]>;
+  private mascotDoc: AngularFirestoreDocument<MascotInterface>;
+  private mascot: Observable<MascotInterface>;
+  public selectedMascot: BookInterface = {
+    id: null
+  };
+
   private booksCollection: AngularFirestoreCollection<BookInterface>;
   private books: Observable<BookInterface[]>;
   private bookDoc: AngularFirestoreDocument<BookInterface>;
@@ -67,4 +76,23 @@ export class DataApiService {
     this.bookDoc = this.afs.doc<BookInterface>(`books/${idBook}`);
     this.bookDoc.delete();
   }
+
+
+  getAllMastcots() {
+    this.mascotsCollection = this.afs.collection<MascotInterface>('mascots');
+    return this.mascots = this.mascotsCollection.snapshotChanges()
+    .pipe(map(changes => {
+      return changes.map(action => {
+        const data = action.payload.doc.data() as MascotInterface;
+        data.id = action.payload.doc.id;
+        return data;
+      });
+    }));
+  }
+
+  addMascot() {}
+
+  updateMascot() {}
+
+  deleteMascot() {}
 }

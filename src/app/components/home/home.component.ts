@@ -9,6 +9,8 @@ import { DataApiService } from '../../services/data-api.service';
 export class HomeComponent implements OnInit {
 
   constructor(private dataApi: DataApiService) { }
+  public mascots = [];
+  public mascot = '';
   public books = [];
   public book = '';
 
@@ -16,6 +18,11 @@ export class HomeComponent implements OnInit {
     this.dataApi.getAllBooks().subscribe(books => {
       console.log('BOOKS', books);
       this.books = books;
+    })
+
+    this.dataApi.getAllMastcots().subscribe(mascots => {
+      console.log('Mascots', mascots);
+      this.mascots = mascots;
     })
   }
 
