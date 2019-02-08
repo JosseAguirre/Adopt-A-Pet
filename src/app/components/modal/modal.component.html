@@ -12,6 +12,7 @@
       <div class="modal-body">
         <form name="formMascot" #formMascot="ngForm" (ngSubmit)="onSaveMascot(formMascot)">
           <input type="hidden" name="id" [(ngModel)]="this.dataApi.selectedMascot.id">
+          <input type="text" name="userUid" [value]="userUid">
           <div class="form-group">
             <label for="accion" class="col-form-label">Accion:</label>
             <select name="accion" class="form-control" [(ngModel)]="this.dataApi.selectedMascot.accion">

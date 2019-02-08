@@ -19,6 +19,7 @@ export class ModalComponent implements OnInit {
   onSaveMascot(formMascot: NgForm): void {
     if (formMascot.value.id == null) {
       // New 
+      formMascot.value.userUid = this.userUid;
       this.dataApi.addMascot(formMascot.value);
     } else {
       // Update
