@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { DataApiService } from '../../services/data-api.service';
-import { BookInterface } from '../../models/book';
 import { NgForm } from '@angular/forms';
+import { MascotInterface } from './../../models/mascot';
 
 @Component({
   selector: 'app-modal',
@@ -16,16 +16,15 @@ export class ModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSaveBook(bookForm: NgForm): void {
-    if (bookForm.value.id == null) {
+  onSaveMascot(formMascot: NgForm): void {
+    if (formMascot.value.id == null) {
       // New 
-      bookForm.value.userUid = this.userUid;
-      this.dataApi.addBook(bookForm.value);
+      this.dataApi.addMascot(formMascot.value);
     } else {
       // Update
-      this.dataApi.updateBook(bookForm.value);
+      this.dataApi.updateMascot(formMascot.value);
     }
-    bookForm.resetForm();
+    formMascot.resetForm();
     this.btnClose.nativeElement.click();
   }
 

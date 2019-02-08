@@ -1,65 +1,102 @@
-<div class="modal fade" id="modalBook" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalMascot" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">
-          {{ !this.dataApi.selectedBook.id ? 'New Book' : 'Update Book'}}
+          Nueva mascota
         </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form name="formBook" #formBook="ngForm" (ngSubmit)="onSaveBook(formBook)">
-          <input type="hidden" name="id" [(ngModel)]="this.dataApi.selectedBook.id">
-          <input type="hidden" name="userUid" [value]="userUid">
+        <form name="formMascot" #formMascot="ngForm" (ngSubmit)="onSaveMascot(formMascot)">
+          <input type="hidden" name="id" [(ngModel)]="this.dataApi.selectedMascot.id">
           <div class="form-group">
-            <label for="titulo" class="col-form-label">Titulo:</label>
-            <input type="text" class="form-control" name="titulo" [(ngModel)]="this.dataApi.selectedBook.titulo">
+            <label for="accion" class="col-form-label">Accion:</label>
+            <select name="accion" class="form-control" [(ngModel)]="this.dataApi.selectedMascot.accion">
+                <option value="Adopcion">Adopcion</option>
+                <option value="Encontrado">Encontrado</option>
+                <option value="Se ha perdido">Se ha perdido</option>
+              </select>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="idioma">Idioma</label>
-              <select name="idioma" class="form-control" [(ngModel)]="this.dataApi.selectedBook.idioma">
-                <option value="Inglés">Inglés</option>
-                <option value="Castellano">Castellano</option>
+              <label for="animal">Animal</label>
+              <select name="animal" class="form-control" [(ngModel)]="this.dataApi.selectedMascot.animal">
+                <option value="Perro">Perro</option>
+                <option value="Gato">Gato</option>
               </select>
             </div>
             <div class="form-group col-md-6">
-              <label for="precio">Precio</label>
-              <input type="text" name="precio" class="form-control" placeholder="0,00€" [(ngModel)]="this.dataApi.selectedBook.precio">
+              <label for="color">Color</label>
+              <input type="text" name="color" class="form-control" placeholder="Cafe con manchas" [(ngModel)]="this.dataApi.selectedMascot.color">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="autor">Autor</label>
-              <input type="text" name="autor" class="form-control" placeholder="Autor" [(ngModel)]="this.dataApi.selectedBook.autor">
+              <label for="cuidados">Cuidados</label>
+              <input type="text" name="cuidados" class="form-control" placeholder="Ejm: Vacunado" [(ngModel)]="this.dataApi.selectedMascot.cuidados">
             </div>
             <div class="form-group col-md-6">
-              <label for="oferta">Oferta</label>
-              <select name="oferta" class="form-control" [(ngModel)]="this.dataApi.selectedBook.oferta">
-                <option value="1">Sí</option>
-                <option value="0">No</option>
-              </select>
-            </div>
+                <label for="genero">Genero</label>
+                <select name="genero" class="form-control" [(ngModel)]="this.dataApi.selectedMascot.genero">
+                    <option value="Macho">Macho</option>
+                    <option value="Hembra">Hembra</option>
+                  </select>
+              </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="portada">Portada</label>
-              <input type="text" name="portada" class="form-control" placeholder="Portada" [(ngModel)]="this.dataApi.selectedBook.portada">
+              <label for="edad">Edad</label>
+              <input type="text" name="edad" class="form-control" placeholder="Ejm: 3 años" [(ngModel)]="this.dataApi.selectedMascot.portada">
             </div>
             <div class="form-group col-md-6">
-              <label for="link_amazon">Link Amazon</label>
-              <input type="text" name="link_amazon" class="form-control" placeholder="Link amazon" [(ngModel)]="this.dataApi.selectedBook.link_amazon">
+              <label for="fecha">Fecha</label>
+              <input type="date" name="fecha" class="form-control" [(ngModel)]="this.dataApi.selectedMascot.fecha">
             </div>
           </div>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="raza">Raza</label>
+                <input type="text" name="raza" class="form-control" placeholder="Rufino" [(ngModel)]="this.dataApi.selectedMascot.raza">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="tamano">Tamaño</label>
+                <select name="tamano" class="form-control" [(ngModel)]="this.dataApi.selectedMascot.tamano">
+                    <option value="Muy Pequeno">Muy Pequeno</option>
+                    <option value="Pequeno">Pequeno</option>
+                    <option value="Mediano">Mediano</option>
+                    <option value="Grande">Grande</option>
+                    <option value="Muy Grande">Muy Grande</option>
+                  </select>
+              </div>
+            </div>
+            <div class="form-group">
+                <label for="ubicacion" class="col-form-label">Ubicacion:</label>
+                <input type="text" name="ubicacion" class="form-control" placeholder="Ejm: Norte de quito, calle 1 y calle2" [(ngModel)]="this.dataApi.selectedMascot.ubicacion">
+              </div>
           <div class="form-group">
             <label for="descripcion" class="col-form-label">Descripcion:</label>
-            <textarea class="form-control" name="descripcion" [(ngModel)]="this.dataApi.selectedBook.descripcion"></textarea>
+            <textarea class="form-control" name="descripcion" [(ngModel)]="this.dataApi.selectedMascot.descripcion"></textarea>
+          </div>
+          <hr>
+          <h4>Datos de contacto</h4>
+          <div class="form-group">
+            <label for="persona" class="col-form-label">Persona o entidad a cargo:</label>
+            <input type="text" name="persona" class="form-control" placeholder="Ejm: Benito Juarez" [(ngModel)]="this.dataApi.selectedMascot.persona">
+          </div>
+          <div class="form-group">
+            <label for="telefono" class="col-form-label">Telefono:</label>
+            <input type="text" name="telefono" class="form-control" placeholder="Ejm: 1800-000-000" [(ngModel)]="this.dataApi.selectedMascot.telefono">
+          </div>
+          <div class="form-group">
+            <label for="email" class="col-form-label">Email:</label>
+            <input type="text" name="email" class="form-control" placeholder="Ejm: benito_juares@adopcion.com" [(ngModel)]="this.dataApi.selectedMascot.email">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" #btnClose data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save Book</button>
+            <button type="button" class="btn btn-secondary" #btnClose data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Guardar Mascota</button>
           </div>
         </form>
       </div>
