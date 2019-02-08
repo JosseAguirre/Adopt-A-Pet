@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataApiService } from '../../services/data-api.service';
-import { BookInterface } from 'src/app/models/book';
+//import { BookInterface } from 'src/app/models/book';
 
 @Component({
   selector: 'app-offers',
@@ -10,15 +10,15 @@ import { BookInterface } from 'src/app/models/book';
 export class OffersComponent implements OnInit {
 
   constructor(private dataApi: DataApiService) { }
-  private books: BookInterface[];
+  //private books: BookInterface[];
   ngOnInit() {
     this.getOffers();
-    console.log('OFERTAS', this.books);
+    //console.log('OFERTAS', this.books);
   }
 
 
   getOffers() {
-    this.dataApi.getAllBooksOffers().subscribe(offers => this.books = offers);
+    //this.dataApi.getAllBooksOffers().subscribe(offers => this.books = offers);
   }
 
 }

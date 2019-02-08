@@ -11,14 +11,8 @@ export class HomeComponent implements OnInit {
   constructor(private dataApi: DataApiService) { }
   public mascots = [];
   public mascot = '';
-  public books = [];
-  public book = '';
 
   ngOnInit() {
-    this.dataApi.getAllBooks().subscribe(books => {
-      console.log('BOOKS', books);
-      this.books = books;
-    })
 
     this.dataApi.getAllMastcots().subscribe(mascots => {
       console.log('Mascots', mascots);

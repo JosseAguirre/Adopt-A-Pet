@@ -41,6 +41,6 @@ export class LoginComponent implements OnInit {
     this.authService.logoutUser();
   }
   onLoginRedirect(): void {
-    this.router.navigate(['admin/list-books']);
+    this.router.navigate(['home']);
   }
 }

@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { OffersComponent } from 'src/app/components/offers/offers.component';
-import { DetailsBookComponent } from './components/details-book/details-book.component';
-import { ListBooksComponent } from './components/admin/list-books/list-books.component';
 import { LoginComponent } from 'src/app/components/users/login/login.component';
 import { RegisterComponent } from 'src/app/components/users/register/register.component';
 import { ProfileComponent } from 'src/app/components/users/profile/profile.component';
@@ -16,12 +13,9 @@ import { ListMascotsComponent } from './components/admin/list-mascots/list-masco
 
 const routes: Routes = [
   {path: '', component: IntroductionComponent},
-  { path: 'home', component: HomeComponent },
-  { path: 'offers', component: OffersComponent, canActivate: [AuthGuard] },
-  { path: 'book/:id', component: DetailsBookComponent },
-  {path: 'mascot/:id', component: DetailsMascotComponent},
-  {path: 'list-mascots', component: ListMascotsComponent},
-  { path: 'admin/list-books', component: ListBooksComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  {path: 'mascot/:id', component: DetailsMascotComponent, canActivate: [AuthGuard]},
+  {path: 'list-mascots', component: ListMascotsComponent, canActivate: [AuthGuard]},
   { path: 'user/login', component: LoginComponent },
   { path: 'user/register', component: RegisterComponent },
   { path: 'user/profile', component: ProfileComponent, canActivate: [AuthGuard] },

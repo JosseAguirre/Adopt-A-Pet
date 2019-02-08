@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListBooksComponent } from './components/admin/list-books/list-books.component';
-import { DetailsBookComponent } from './components/details-book/details-book.component';
 import { HomeComponent } from './components/home/home.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -28,8 +26,6 @@ import { ListMascotsComponent } from './components/admin/list-mascots/list-masco
 @NgModule({
   declarations: [
     AppComponent,
-    ListBooksComponent,
-    DetailsBookComponent,
     HomeComponent,
     ModalComponent,
     NavbarComponent,
