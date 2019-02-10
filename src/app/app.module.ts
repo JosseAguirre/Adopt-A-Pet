@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { OffersComponent } from './components/offers/offers.component';
 import { LoginComponent } from './components/users/login/login.component';
 import { ProfileComponent } from './components/users/profile/profile.component';
 import { RegisterComponent } from './components/users/register/register.component';
@@ -29,7 +28,6 @@ import { ListMascotsComponent } from './components/admin/list-mascots/list-masco
     HomeComponent,
     ModalComponent,
     NavbarComponent,
-    OffersComponent,
     LoginComponent,
     ProfileComponent,
     RegisterComponent,
