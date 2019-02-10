@@ -13,7 +13,7 @@
           <th scope="col">&nbsp;</th>
       </thead>
       <tbody>
-        <tr *ngFor="let mascot of mascots; index as i">
+        <tr *ngFor="let mascot of mascots | paginate: {itemsPerPage: 6, currentPage: paginaActual}; index as i">
           <th scope="row">{{i+1}}</th>
           <td>{{mascot.animal}}</td>
           <td>{{mascot.raza}}</td>
@@ -37,6 +37,7 @@
         </tr>
       </tbody>
     </table>
+    <pagination-controls (pageChange)="paginaActual = $event"></pagination-controls>
   </div>
 </section>
 

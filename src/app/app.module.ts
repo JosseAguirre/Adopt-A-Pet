@@ -20,6 +20,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { DetailsMascotComponent } from './components/details-mascot/details-mascot.component';
 import { IntroductionComponent } from './components/introduction/introduction.component';
 import { ListMascotsComponent } from './components/admin/list-mascots/list-mascots.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -43,6 +45,8 @@ import { ListMascotsComponent } from './components/admin/list-mascots/list-masco
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
+    NgxSpinnerModule,
+    NgxPaginationModule
   ],
   providers: [AngularFireAuth, AngularFirestore],
   bootstrap: [AppComponent]

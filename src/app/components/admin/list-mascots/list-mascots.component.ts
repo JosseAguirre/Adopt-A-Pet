@@ -17,6 +17,7 @@ export class ListMascotsComponent implements OnInit {
   private mascots: MascotInterface[];
   public isAdmin: any = null;
   public userUid: string = null;
+  paginaActual: number = 1;
 
   ngOnInit() {
     this.getListMacots();
