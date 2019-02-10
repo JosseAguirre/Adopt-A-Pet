@@ -1,1 +1,45 @@
-{{mascot | json}}
+<section id="mascots" class="mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card text-center" style="width: 32rem; margin-left: 300px">
+                <div class="card-header">
+                  {{mascot.accion}}
+                </div>
+                <div class="card-body">
+                        <img src="{{mascot.imagen}}" class="card-img-top" alt="{{mascot.nombre}}">
+                  <h5 class="card-title">{{mascot.nombre}}</h5>
+
+                  <ul class="nav nav-tabs">
+                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" data-target='#detalle'>Detalle</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" data-target='#contacto'>Contacto</a></li>
+                    </ul>
+                    
+                    <div class="tab-content">
+                    <div id="detalle" class="tab-pane fade show active">
+                        <p>Animalito: {{mascot.animal}}</p>
+                        <p>Color: {{mascot.color}}</p>
+                        <p>Cuidados: {{mascot.cuidados}}</p>
+                        <p>Edad: {{mascot.edad}}</p>
+                        <p>Genero: {{mascot.genero}}</p>
+                        <p>Personalidad: {{mascot.personalidad}}</p>
+                        <p>Raza: {{mascot.raza}}</p>
+                        <p>Tamaño: {{mascot.tamano}}</p>
+                    </div>
+                    <div id="contacto" class="tab-pane fade">
+                        <p>Dueño o Encargado: {{mascot.persona}}</p>
+                        <p>Telefono: {{mascot.telefono}}</p>
+                        <p>Correo: {{mascot.email}}</p>
+                        <p>Ubicacion: {{mascot.ubicacion}}</p>
+                    </div>
+                    </div>
+
+                </div>
+                <div class="card-footer text-muted">
+                    {{mascot.fecha}}
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>

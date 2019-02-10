@@ -1,12 +1,12 @@
 <section id="mascots" class="mt-5">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let mascot of mascots">
-        <div class="card" style="width: 18rem;">
-          <img src="{{mascot.imagen}}" class="card-img-top" alt="{{mascot.nombre}}">
+      <div class="col-xs-12 col-sm-6 col-md-3" *ngFor="let mascot of mascots">
+        <div class="card" style="width: 16rem;">
+          <img src="{{mascot.imagen}}" class="card-img-top" width="150px" height="200px" alt="{{mascot.nombre}}">
           <div class="card-body">
             <h5 class="card-title">{{mascot.nombre}}<span class="badge badge-secondary text-right">{{mascot.accion}}</span></h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">{{mascot.descripcion}}</p>
             <a routerLink="/mascot/{{mascot.id}}" class="btn btn-primary">Ver delatalles</a>
           </div>
         </div>

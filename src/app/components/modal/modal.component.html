@@ -82,8 +82,8 @@
               </div>
             </div>
             <div class="form-group">
-                <label for="ubicacion" class="col-form-label">Ubicacion:</label>
-                <input type="text" name="ubicacion" class="form-control" placeholder="Ejm: Norte de quito, calle 1 y calle2" [(ngModel)]="this.dataApi.selectedMascot.ubicacion">
+                <label for="personalidad" class="col-form-label">Personalidad:</label>
+                <textarea class="form-control" name="personalidad" [(ngModel)]="this.dataApi.selectedMascot.personalidad"></textarea>
               </div>
           <div class="form-group">
             <label for="descripcion" class="col-form-label">Descripcion:</label>
@@ -91,8 +91,13 @@
           </div>
           <div class="form-group">
             <label for="imagen" class="col-form-label">Sube una imagen:</label>
-            <input type="file" accept=".png, .jpg"  class="form-control" (change)="onUpload($event)" placeholder="Sube tu imagen favorita!!">
-            <input #imageUser [value]="urlImage | async" name="imagen" [(ngModel)]="this.dataApi.selectedMascot.imagen">
+            <input type="file" accept=".png, .jpg"  class="form-control" (change)="onUpload($event)">
+            <div [style.visibility]="(uploadPercent == 0) ? 'hidden' : 'visible'" class="progress-bar progress-bar-striped bg-success"
+                role="progressbar" [style.width]="(uploadPercent | async) +'%'">
+                <!-- <span class="progressText" *ngIf="urlImage | async">
+                  Ok!!</span> -->
+            </div>
+            <input type="text" class="form-control" #imageUser [value]="urlImage | async" name="imagen" [(ngModel)]="this.dataApi.selectedMascot.imagen">
           </div>
           <hr>
           <h4>Datos de contacto</h4>
@@ -108,6 +113,10 @@
             <label for="email" class="col-form-label">Email:</label>
             <input type="text" name="email" class="form-control" placeholder="Ejm: benito_juares@adopcion.com" [(ngModel)]="this.dataApi.selectedMascot.email">
           </div>
+          <div class="form-group">
+              <label for="ubicacion" class="col-form-label">Ubicacion:</label>
+              <input type="text" name="ubicacion" class="form-control" placeholder="Ejm: Norte de quito, calle 1 y calle2" [(ngModel)]="this.dataApi.selectedMascot.ubicacion">
+            </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" #btnClose data-dismiss="modal">Cerrar</button>
             <button type="submit" class="btn btn-primary">Guardar</button>
