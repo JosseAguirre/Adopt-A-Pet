@@ -12,8 +12,9 @@
       <div class="modal-body">
         <form name="formMascot" #formMascot="ngForm" (ngSubmit)="onSaveMascot(formMascot)">
           <input type="hidden" name="id" [(ngModel)]="this.dataApi.selectedMascot.id">
-          <input type="text" name="userUid" [value]="userUid">
-          <div class="form-group">
+          <input type="hidden" name="userUid" [value]="userUid">
+          <div class="form-row">
+          <div class="form-group col-md-6">
             <label for="accion" class="col-form-label">Accion:</label>
             <select name="accion" class="form-control" [(ngModel)]="this.dataApi.selectedMascot.accion">
                 <option value="Adopcion">Adopcion</option>
@@ -21,12 +22,19 @@
                 <option value="Se ha perdido">Se ha perdido</option>
               </select>
           </div>
+          <div class="form-group col-md-6">
+            <label for="nombre">Nombre del animalito</label>
+            <input type="text" name="nombre" class="form-control" placeholder="Ejm: Firulais" [(ngModel)]="this.dataApi.selectedMascot.nombre">
+          </div>
+         </div>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="animal">Animal</label>
               <select name="animal" class="form-control" [(ngModel)]="this.dataApi.selectedMascot.animal">
                 <option value="Perro">Perro</option>
                 <option value="Gato">Gato</option>
+                <option value="Gato">Tortuga</option>
+                <option value="Gato">Conejo</option>
               </select>
             </div>
             <div class="form-group col-md-6">
@@ -80,6 +88,11 @@
           <div class="form-group">
             <label for="descripcion" class="col-form-label">Descripcion:</label>
             <textarea class="form-control" name="descripcion" [(ngModel)]="this.dataApi.selectedMascot.descripcion"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="imagen" class="col-form-label">Sube una imagen:</label>
+            <input type="file" accept=".png, .jpg"  class="form-control" (change)="onUpload($event)" placeholder="Sube tu imagen favorita!!">
+            <input #imageUser [value]="urlImage | async" name="imagen" [(ngModel)]="this.dataApi.selectedMascot.imagen">
           </div>
           <hr>
           <h4>Datos de contacto</h4>
