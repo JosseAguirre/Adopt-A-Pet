@@ -44,7 +44,7 @@ export class ListMascotsComponent implements OnInit {
   }
 
   onDeleteMascot(idMascot: string): void {
-    const confirmacion = confirm('Are you sure?');
+    const confirmacion = confirm('Estas seguro?');
     if (confirmacion) {
       this.dataApi.deleteMascot(idMascot);
     }
